@@ -185,3 +185,60 @@ footer { background: #000; text-align: center; padding: 30px; color: #666; borde
     .tsq-header h1 { font-size: 2rem; }
     .tsq-item { font-size: 1rem; padding: 15px;}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ====================================================
+   📱 MEGA MOBILE FIX (इस कोड को style.css के सबसे अंत में डालें)
+   ==================================================== */
+
+@media (max-width: 768px) {
+    /* स्क्रीन को बाहर जाने से रोकना */
+    body { overflow-x: hidden; width: 100vw; }
+    
+    /* हेडर और मेन्यू को सेट करना */
+    header { flex-direction: column; padding: 15px 10px; gap: 15px; text-align: center; }
+    .main-nav ul { flex-wrap: wrap; justify-content: center; gap: 10px; padding: 0; }
+    .nav-box { font-size: 0.85rem; padding: 6px 12px; }
+    
+    /* हीरो बैनर को मोबाइल के हिसाब से सीधा करना */
+    .hero-container { flex-direction: column-reverse; text-align: center; padding: 10px; }
+    .hero-text h1 { font-size: 2.2rem; }
+    .hero-text h2 { font-size: 1.3rem; }
+    .hero-text p { font-size: 1rem; }
+    .hero-image img { max-width: 90%; margin: 0 auto; display: block; }
+    
+    /* वीडियो और इमेजेज को स्क्रीन के अंदर रखना */
+    .video-container video, .history-map img { width: 100%; max-width: 95vw; height: auto; }
+    
+    /* टेक्स्ट वाले बॉक्स की पैडिंग कम करना */
+    .about-content, .reality-content { padding: 20px; margin: 10px; }
+    .section-title { font-size: 1.8rem; }
+    
+    /* ग्रिड कार्ड्स को 1 लाइन में लाना */
+    .grid-cards { grid-template-columns: 1fr; gap: 15px; padding: 10px; }
+    .fighters-grid { grid-template-columns: 1fr; }
+    
+    /* Join.html के लिए फिक्स */
+    .tsq-header h1 { font-size: 1.8rem; }
+    .tsq-item { font-size: 1rem; padding: 15px; }
+    .final-btn { padding: 15px 30px; font-size: 1.1rem; width: 90%; display: inline-block; }
+}
+
+/* बहुत छोटी स्क्रीन्स (जैसे पुराने फोन्स) के लिए */
+@media (max-width: 400px) {
+    .hero-text h1 { font-size: 1.8rem; }
+    .logo-text { font-size: 1.2rem; }
+}
