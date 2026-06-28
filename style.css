@@ -206,76 +206,71 @@ footer { background: #000; text-align: center; padding: 30px; color: #666; borde
 
 
 /* ====================================================
-   📱 MEGA MOBILE FIX (THE ULTIMATE OVERRIDE)
+   📱 FINAL HEADER FIX (LOGO & 2 BUTTONS ON 1ST LINE)
    ==================================================== */
 
 @media (max-width: 768px) {
-    /* --- 1. 2-Row Header (No Swipe, Everything Visible) --- */
-    header {
-        display: flex !important;
-        flex-wrap: wrap !important;
-        justify-content: space-between !important;
-        align-items: center !important;
-        padding: 10px 5% !important;
-        overflow: visible !important; /* स्वाइप वाला सिस्टम बंद */
-    }
-
-    /* टॉप लाइन: लोगो और एक्शन्स */
-    .logo-box { order: 1; flex: 1; }
-    .header-actions { order: 2; display: flex; gap: 8px; }
-
-    /* बॉटम लाइन: मेन्यू के 4 बटन का ग्रिड */
-    .main-nav {
-        order: 3;
-        width: 100% !important;
-        margin-top: 12px !important;
-        padding-top: 12px !important;
-        border-top: 1px solid #333 !important; /* बीच में एक खूबसूरत लाइन */
-    }
-
-    .main-nav ul {
-        display: flex !important;
+    /* हेडर को फ्लेक्स रैप में रखें ताकि 2 लाइनें बन सकें */
+    header { 
+        display: flex !important; 
         flex-wrap: wrap !important; 
-        justify-content: space-between !important;
-        gap: 8px !important;
+        justify-content: space-between !important; 
+        align-items: center !important; 
+        padding: 10px 5% !important; 
     }
 
-    /* चारों बटनों को 2x2 ग्रिड में सेट करना */
-    .nav-box {
-        font-size: 0.85rem !important;
-        padding: 8px !important;
-        flex: 1 1 calc(50% - 10px) !important; /* यह जादू बटनों को 2 लाइनों में बराबर बांट देगा */
-        text-align: center !important;
-    }
-
-    .logo-text { font-size: 1.3rem !important; }
-    .nav-logo { width: 32px !important; height: 32px !important; }
-    #lang-toggle, .header-join-btn { font-size: 0.85rem !important; padding: 6px 12px !important; }
-
-
-    /* --- 2. Join Page Button Fix (स्क्रीनशॉट वाली प्रॉब्लम) --- */
-    .final-btn {
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        width: 100% !important;
-        max-width: 320px !important;
-        margin: 0 auto !important;
-        padding: 15px 20px !important;
-        height: auto !important; /* बटन को टूटने से बचाएगा */
-        border-radius: 12px !important; /* कैप्सूल की जगह हल्का चौकोर, ताकि टेक्स्ट फिट रहे */
-        text-align: center !important;
-        white-space: normal !important; /* टेक्स्ट को आराम से 2 लाइन में आने देगा */
-        line-height: 1.5 !important;
+    /* --- पहली लाइन (Row 1): लेफ्ट में लोगो, राईट में दोनों बटन --- */
+    .logo-box { 
+        order: 1 !important; 
+        width: auto !important; 
+        display: flex !important; 
+        align-items: center !important; 
+        flex-shrink: 1 !important; /* जगह कम होने पर लोगो थोड़ा सिकुड़ जाएगा */
     }
     
-    .final-btn span {
-        white-space: normal !important;
-        display: block !important;
+    .header-actions { 
+        order: 2 !important; 
+        width: auto !important; 
+        display: flex !important; 
+        align-items: center !important; 
+        gap: 6px !important; /* बटनों के बीच की जगह कम की ताकि वो 1 लाइन में आ जाएं */
+        flex-shrink: 0 !important; /* बटनों को टूटने और नीचे जाने से रोकेगा */
     }
 
+    /* मोबाइल पर लोगो और बटनों का साइज़ एकदम परफेक्ट फिट के लिए */
+    .logo-text { font-size: 1.1rem !important; margin-left: 5px !important;}
+    .nav-logo { width: 30px !important; height: 30px !important; }
+    
+    #lang-toggle, .header-join-btn { 
+        font-size: 0.75rem !important; 
+        padding: 6px 10px !important; 
+        white-space: nowrap !important; /* टेक्स्ट को 2 लाइन में नहीं जाने देगा */
+        border-radius: 5px !important;
+    }
 
-    /* --- 3. General Mobile Tweaks --- */
+    /* --- दूसरी लाइन (Row 2): चारों मेन्यू का 2x2 ग्रिड --- */
+    .main-nav { 
+        order: 3 !important; 
+        width: 100% !important; 
+        margin-top: 10px !important; 
+        padding-top: 10px !important; 
+        border-top: 1px solid #333 !important; 
+    }
+    .main-nav ul { 
+        display: flex !important; 
+        flex-wrap: wrap !important; 
+        justify-content: space-between !important; 
+        gap: 8px !important; 
+    }
+    .nav-box { 
+        font-size: 0.85rem !important; 
+        padding: 8px !important; 
+        flex: 1 1 calc(50% - 10px) !important; /* 2x2 ग्रिड (चारों बटन 2 लाइनों में) */
+        text-align: center !important; 
+        border-radius: 5px !important;
+    }
+
+    /* --- बाकी मोबाइल फिक्स (बैनर, कार्ड्स, जॉइन बटन) --- */
     body { overflow-x: hidden !important; width: 100vw !important; }
     .hero-container { flex-direction: column-reverse !important; text-align: center !important; padding: 10px !important; }
     .hero-text h1 { font-size: 2.2rem !important; text-align: center !important; }
@@ -283,11 +278,13 @@ footer { background: #000; text-align: center; padding: 30px; color: #666; borde
     .main-join-btn { display: block !important; margin: 0 auto !important; max-width: 250px !important; }
     .hero-image img { max-width: 85% !important; margin: 0 auto !important; display: block !important; }
     .video-container video, .history-map img { width: 100% !important; max-width: 95vw !important; height: auto !important; }
-    .grid-cards { grid-template-columns: 1fr !important; gap: 15px !important; }
-    .fighters-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
+    .about-content, .reality-content { padding: 20px; margin: 10px; }
+    .section-title, .tsq-header h1 { font-size: 1.8rem !important; }
+    .grid-cards, .fighters-grid { grid-template-columns: 1fr !important; gap: 15px !important; padding: 10px !important; }
+    
+    /* जॉइन पेज का बटन फिक्स (ताकि वो न टूटे) */
+    .final-btn { display: inline-block !important; width: 100% !important; max-width: 300px !important; height: auto !important; line-height: 1.3 !important; padding: 15px 10px !important; font-size: 1.1rem !important; white-space: normal !important; border-radius: 10px !important; }
 }
-
-/* 
 
 
 
