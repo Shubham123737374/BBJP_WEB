@@ -288,3 +288,47 @@ footer { background: #000; text-align: center; padding: 30px; color: #666; borde
 }
 
 /* 
+
+
+
+
+/* ====================================================
+   ✨ SMART SHRINKING HEADER (FOR MOBILE & DESKTOP)
+   ==================================================== */
+
+/* हेडर में स्मूथ एनिमेशन के लिए */
+header {
+    transition: all 0.4s ease !important;
+}
+.main-nav {
+    transition: max-height 0.4s ease, opacity 0.3s ease, margin 0.4s ease, padding 0.4s ease !important;
+    max-height: 200px; 
+    overflow: hidden;
+}
+
+/* --- जब यूज़र नीचे स्क्रॉल करेगा (Scrolled State) --- */
+header.scrolled {
+    padding: 5px 5% !important; /* पैडिंग कम कर दी */
+    background: rgba(10, 10, 10, 0.98) !important; /* बैकग्राउंड थोड़ा डार्क */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.8) !important;
+}
+
+/* सिर्फ मोबाइल के लिए: स्क्रॉल करने पर मेन्यू गायब करना */
+@media (max-width: 768px) {
+    header.scrolled .main-nav {
+        max-height: 0 !important; /* मेन्यू की हाइट जीरो */
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+        border-top: none !important;
+        opacity: 0 !important; /* मेन्यू गायब */
+    }
+    
+    /* स्क्रॉल करने पर लोगो और बटन भी थोड़े छोटे हो जाएंगे */
+    header.scrolled .logo-text { font-size: 1.1rem !important; }
+    header.scrolled .nav-logo { width: 28px !important; height: 28px !important; }
+    header.scrolled #lang-toggle, 
+    header.scrolled .header-join-btn { 
+        padding: 5px 10px !important; 
+        font-size: 0.8rem !important; 
+    }
+}
