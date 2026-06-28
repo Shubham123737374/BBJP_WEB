@@ -1,0 +1,187 @@
+/* --- Base Mobile-First Reset --- */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; scroll-behavior: smooth; }
+body { background-color: #050505; color: #ffffff; overflow-x: hidden; width: 100%; }
+
+/* --- 🎬 3-Sec Splash Screen --- */
+#splash-screen { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background-color: #000; z-index: 10000; display: flex; justify-content: center; align-items: center; text-align: center; transition: opacity 0.1s ease; }
+.splash-content { padding: 20px; }
+.splash-logo { width: 150px; border-radius: 50%; margin-bottom: 20px; animation: pulse 1.5s infinite; }
+@keyframes pulse { 0% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(255,153,51, 0.7); } 70% { transform: scale(1.1); box-shadow: 0 0 0 20px rgba(255,153,51, 0); } 100% { transform: scale(0.9); } }
+.splash-content h1 { color: #FF9933; font-size: 1.5rem; margin-bottom: 20px; }
+.loading-text { color: #128807; font-weight: bold; font-size: 1.2rem; margin-top: 20px;}
+
+/* --- ⚠️ Marquee Disclaimer --- */
+.marquee-container { background: #ff2a2a; color: white; padding: 8px 0; overflow: hidden; white-space: nowrap; width: 100%; position: relative; z-index: 999;}
+.marquee-text { display: inline-block; animation: scrollText 20s linear infinite; font-size: 0.95rem; font-weight: bold; letter-spacing: 1px;}
+@keyframes scrollText { from { transform: translateX(100vw); } to { transform: translateX(-100%); } }
+
+/* --- 📱 Header & Navigation --- */
+header { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; background: rgba(10, 10, 10, 0.95); border-bottom: 1px solid #333; position: sticky; top: 0; z-index: 998; flex-wrap: wrap;}
+.logo-box { display: flex; align-items: center; gap: 10px; }
+.nav-logo { width: 40px; height: 40px; border-radius: 50%; }
+.logo-text { font-size: 1.5rem; font-weight: bold; color: #FF9933; }
+
+/* 🌟 RECTANGLE BOXES FOR NAV LINKS 🌟 */
+.main-nav ul { display: flex; list-style: none; gap: 15px; }
+.nav-box { 
+    display: inline-block;
+    background: #1a1a1a; 
+    color: #ddd !important; 
+    text-decoration: none; 
+    font-size: 0.95rem; 
+    font-weight: bold; 
+    padding: 8px 15px; 
+    border-radius: 5px; 
+    border: 1px solid #444; 
+    transition: 0.3s; 
+}
+.nav-box:hover { background: #333; color: #FF9933 !important; border-color: #FF9933; box-shadow: 0 0 10px rgba(255,153,51,0.2);}
+
+.header-actions { display: flex; gap: 10px; align-items: center; }
+#lang-toggle { background: #333; color: #fff; border: 1px solid #555; padding: 8px 15px; border-radius: 5px; cursor: pointer; font-weight: bold; transition: 0.3s;}
+#lang-toggle:hover { background: #555; border-color: #FF9933;}
+.header-join-btn { background: #128807; color: white; padding: 8px 15px; text-decoration: none; font-weight: bold; border-radius: 5px; font-size: 0.95rem; transition: 0.3s; border: 1px solid #128807;}
+.header-join-btn:hover { background: #FF9933; color: #000; border-color:#FF9933; }
+
+/* --- 🚀 Hero Section --- */
+.hero { padding: 50px 5%; background: radial-gradient(circle at center, #1a1a1a 0%, #050505 100%); text-align: center; }
+.hero-text h1 { font-size: 3rem; color: #FF9933; margin-bottom: 10px; line-height: 1.2;}
+.hero-text h2 { font-size: 1.8rem; color: #fff; margin-bottom: 20px; }
+.hero-text p { font-size: 1.1rem; color: #ccc; margin-bottom: 30px; line-height: 1.6;}
+.main-join-btn { display: inline-block; background: #FF9933; color: #000; padding: 15px 30px; text-decoration: none; font-weight: bold; border-radius: 30px; font-size: 1.2rem; transition: 0.3s;}
+.glow { box-shadow: 0 0 20px rgba(255, 153, 51, 0.6); }
+.glow:hover { transform: scale(1.05); }
+.hero-image { margin-top: 40px; }
+.hero-image img { width: 100%; max-width: 450px; border-radius: 15px; border: 2px solid #333; box-shadow: 0 10px 30px rgba(0,0,0,0.8);}
+
+/* --- 📖 About Us Section --- */
+.about-section { padding: 80px 5%; background-color: #050505; text-align: center;}
+.about-section h2 { color: #FF9933; font-size: 2.5rem; margin-bottom: 25px; }
+.about-content { max-width: 1000px; margin: 0 auto; background: #111; padding: 40px; border-radius: 15px; border: 1px solid #333; text-align: left; box-shadow: 0 10px 30px rgba(0,0,0,0.5);}
+.about-content p { font-size: 1.15rem; color: #ddd; line-height: 1.8; margin-bottom: 20px;}
+.about-content h3 { color: #128807; margin: 25px 0 10px 0; font-size: 1.5rem;}
+.about-list { margin-left: 20px; color: #ccc; font-size: 1.1rem; line-height: 1.8; }
+.about-list li { margin-bottom: 10px; }
+
+/* --- 🎥 Video Section --- */
+.video-section { padding: 60px 5%; text-align: center; background: #000; border-top: 1px solid #222; border-bottom: 1px solid #222;}
+.video-section h2 { color: #128807; margin-bottom: 30px; font-size: 2.2rem;}
+.video-container { width: 100%; max-width: 1000px; margin: 0 auto; border-radius: 10px; overflow: hidden; border: 2px solid #222; box-shadow: 0 10px 40px rgba(255,153,51,0.2);}
+.video-container video { width: 100%; height: auto; display: block; outline: none;}
+
+/* --- 🗺️ History (Map) Section --- */
+.history-section { padding: 80px 5%; background: #0a0a0a; }
+.history-container { display: flex; flex-wrap: wrap; gap: 40px; align-items: center; max-width: 1200px; margin: 0 auto;}
+.history-map { flex: 1; min-width: 300px; text-align: center; }
+.history-map img { width: 100%; max-width: 400px; filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.1)); }
+.history-text { flex: 1; min-width: 300px; }
+.history-text h2 { color: #FF9933; font-size: 2.2rem; margin-bottom: 20px; }
+.history-text p { font-size: 1.15rem; color: #ddd; line-height: 1.8; margin-bottom: 15px; }
+
+/* --- ⚔️ Freedom Fighters Section --- */
+.freedom-fighters-section { padding: 80px 5%; background: #050505; text-align: center; border-top: 1px solid #222;}
+.freedom-fighters-section h2 { color: #FF9933; font-size: 2.5rem; margin-bottom: 50px; }
+.fighters-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto;}
+.fighter-card { background: #111; padding: 25px; border-radius: 10px; border: 1px solid #333; text-align: left; transition: 0.3s;}
+.fighter-card:hover { border-color: #128807; transform: translateY(-5px); box-shadow: 0 10px 20px rgba(18,136,7,0.2);}
+.fighter-card img { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid #128807; margin-bottom: 15px; }
+.fighter-card h3 { color: #fff; font-size: 1.5rem; margin-bottom: 5px; }
+.fighter-card .dates { color: #888; font-size: 0.9rem; margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 10px;}
+.fighter-card p:not(.dates) { color: #ccc; font-size: 1.05rem; line-height: 1.6; }
+
+/* --- 🛑 Reality Check Section --- */
+.reality-section { padding: 80px 5%; background: #1a0505; border-top: 2px solid #ff2a2a; text-align: center;}
+.reality-section h2 { color: #ff2a2a; font-size: 2.5rem; margin-bottom: 40px; text-transform: uppercase;}
+.reality-content { max-width: 900px; margin: 0 auto; background: #000; padding: 40px; border-radius: 15px; border: 1px solid #333; text-align: left; box-shadow: 0 10px 30px rgba(0,0,0,0.5);}
+.reality-content p { font-size: 1.2rem; color: #eee; line-height: 1.8; margin-bottom: 20px; }
+.reality-content strong { color: #FF9933; }
+
+/* --- 📜 Manifesto Grid (Vachan) --- */
+.vachan-section { padding: 80px 5%; background-color: #0a0a0a; border-top: 1px solid #222;}
+.section-title { text-align: center; font-size: 2.8rem; color: #FF9933; margin-bottom: 50px; text-transform: uppercase;}
+.phase-container { margin-bottom: 60px; max-width: 1200px; margin-left: auto; margin-right: auto;}
+.phase-title { font-size: 1.8rem; color: #ffffff; border-left: 5px solid #128807; padding-left: 15px; margin-bottom: 30px; }
+.grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+.card { background: #141414; padding: 25px; border-radius: 10px; border: 1px solid #262626; transition: 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.5);}
+.card:hover { transform: translateY(-5px); border-color: #FF9933; box-shadow: 0 10px 20px rgba(255,153,51,0.2);}
+.card h4 { color: #FF9933; font-size: 1.2rem; margin-bottom: 12px; line-height: 1.4;}
+.card p { color: #bbb; font-size: 1rem; line-height: 1.5; }
+
+/* --- 💥 Extra Join Button Section --- */
+.extra-join-section { padding: 60px 5%; background: #050505; text-align: center; border-top: 1px dashed #333;}
+.extra-join-section h2 { color: #fff; font-size: 2rem; margin-bottom: 25px;}
+
+/* --- 📞 Contact & Social Media --- */
+.contact-section { padding: 60px 5%; text-align: center; background: #000; border-top: 1px solid #222;}
+.contact-section h2 { font-size: 2.5rem; color: #FF9933; margin-bottom: 15px; }
+.contact-section p { font-size: 1.2rem; color: #ccc; margin-bottom: 30px; }
+.social-links { display: flex; justify-content: center; gap: 30px; }
+.social-icon { font-size: 2.5rem; color: #555; transition: 0.4s; }
+.social-icon:hover { transform: scale(1.2); }
+.twitter:hover { color: #ffffff; }
+.instagram:hover { color: #E1306C; }
+.email:hover { color: #FF9933; }
+
+/* Footer */
+footer { background: #000; text-align: center; padding: 30px; color: #666; border-top: 1px solid #222; line-height: 1.6;}
+
+/* ====================================================
+   🔥 MASSIVE UPGRADE: JOIN.HTML (TSQ PROTOCOL) CSS 🔥 
+   ==================================================== */
+.join-page { background: #020202; background-image: radial-gradient(circle, #1a1a1a 1px, transparent 1px); background-size: 30px 30px;}
+.join-header { justify-content: center; border-bottom: 2px solid #FF9933; box-shadow: 0 4px 15px rgba(255,153,51,0.3);}
+.tsq-section { max-width: 900px; margin: 60px auto; padding: 0 20px;}
+.tsq-header { text-align: center; margin-bottom: 50px; border-bottom: 2px dashed #333; padding-bottom: 30px;}
+.tsq-header h1 { color: #FF9933; font-size: 3rem; text-transform: uppercase; letter-spacing: 2px; text-shadow: 0 0 10px rgba(255,153,51,0.5);}
+.tsq-subtitle { color: #128807; font-size: 1.3rem; font-weight: bold; margin-top: 10px;}
+
+.tsq-list { display: flex; flex-direction: column; gap: 20px; }
+.tsq-item { 
+    background: rgba(10, 10, 10, 0.9); 
+    padding: 25px; 
+    border-left: 5px solid #FF9933; 
+    border-radius: 8px; 
+    font-size: 1.1rem; 
+    line-height: 1.6; 
+    color: #ddd; 
+    border-top: 1px solid #222; 
+    border-right: 1px solid #222; 
+    border-bottom: 1px solid #222;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.8);
+    position: relative;
+    overflow: hidden;
+}
+.tsq-item::before {
+    content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 153, 51, 0.1), transparent);
+    transition: 0.5s;
+}
+.tsq-item:hover { transform: translateX(10px); border-left-color: #128807; box-shadow: 0 0 20px rgba(18,136,7,0.3);}
+.tsq-item:hover::before { left: 100%; }
+.tsq-item strong { color: #128807; font-size: 1.2rem;}
+
+.final-action { margin-top: 70px; text-align: center; margin-bottom: 100px; background: #0a0a0a; padding: 40px; border-radius: 15px; border: 1px solid #333;}
+.final-action p { font-size: 1.8rem; color: #fff; margin-bottom: 30px; font-weight: bold;}
+.final-btn { font-size: 1.5rem; padding: 20px 50px; border-radius: 50px; background: #FF9933; color: #000; box-shadow: 0 0 30px rgba(255,153,51,0.6);}
+.final-btn:hover { background: #128807; color: white; box-shadow: 0 0 30px rgba(18,136,7,0.8);}
+
+/* --- Desktop Tweaks --- */
+@media (min-width: 900px) {
+    .hero-container { display: flex; text-align: left; align-items: center; max-width: 1200px; margin: 0 auto;}
+    .hero-text h1 { font-size: 3.5rem; }
+}
+
+/* --- Mobile Responsive Final Tweaks --- */
+@media (max-width: 768px) {
+    header { flex-direction: column; gap: 15px;}
+    .main-nav ul { flex-wrap: wrap; justify-content: center; gap: 10px;}
+    .hero-container { display: flex; text-align: left; flex-direction: column-reverse;}
+    .hero-text h1 { font-size: 2.5rem; text-align: center; }
+    .hero-text h2 { font-size: 1.5rem; text-align: center; }
+    .hero-text p { text-align: center; }
+    .main-join-btn { display: block; margin: 0 auto; text-align: center; }
+    .section-title { font-size: 2rem; }
+    .tsq-header h1 { font-size: 2rem; }
+    .tsq-item { font-size: 1rem; padding: 15px;}
+}
