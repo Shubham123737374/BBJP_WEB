@@ -210,7 +210,7 @@ footer { background: #000; text-align: center; padding: 30px; color: #666; borde
 
 @media (max-width: 768px) {
     /* 1. हेडर को ज़बरदस्ती एक लाइन में फिक्स करना */
-    header {
+    header { 
         display: flex !important;
         flex-direction: row !important;
         flex-wrap: nowrap !important;
