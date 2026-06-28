@@ -29,5 +29,21 @@ window.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             splash.style.display = 'none';
         }, 500); 
-    }, 3000); // 3000 milliseconds = 3 seconds
+    }, 2000); // 3000 milliseconds = 3 seconds
+});
+
+
+
+
+
+
+// --- 3. Smart Sticky Header (Shrinks on Scroll) ---
+window.addEventListener('scroll', () => {
+    const header = document.querySelector('header');
+    // Agar user 50px se jyada niche scroll karta hai
+    if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
 });
