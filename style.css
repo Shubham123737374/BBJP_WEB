@@ -204,55 +204,78 @@ footer { background: #000; text-align: center; padding: 30px; color: #666; borde
    📱 MEGA MOBILE FIX (इस कोड को style.css के सबसे अंत में डालें)
    ==================================================== */
 
+
 /* ====================================================
-   📱 ULTRA MOBILE FIX (THE MASTER OVERRIDE)
+   📱 MEGA MOBILE FIX (THE ULTIMATE OVERRIDE)
    ==================================================== */
 
 @media (max-width: 768px) {
-    /* 1. हेडर को ज़बरदस्ती एक लाइन में फिक्स करना */
-    header { 
+    /* --- 1. 2-Row Header (No Swipe, Everything Visible) --- */
+    header {
         display: flex !important;
-        flex-direction: row !important;
-        flex-wrap: nowrap !important;
-        justify-content: flex-start !important;
+        flex-wrap: wrap !important;
+        justify-content: space-between !important;
         align-items: center !important;
-        overflow-x: auto !important; /* स्वाइप चालू */
-        padding: 10px !important;
-        gap: 15px !important;
-        width: 100vw !important; /* स्क्रीन से बाहर नहीं जाएगा */
-        box-sizing: border-box !important;
-        -webkit-overflow-scrolling: touch;
-    }
-    
-    /* गंदा स्क्रॉलबार छिपाने के लिए */
-    header::-webkit-scrollbar { display: none !important; }
-    
-    /* 2. हेडर के अंदर के सारे बॉक्स को एक लाइन में लॉक करना */
-    .logo-box, .main-nav, .main-nav ul, .header-actions {
-        display: flex !important;
-        flex-direction: row !important;
-        flex-wrap: nowrap !important;
-        align-items: center !important;
-        flex-shrink: 0 !important; /* इन्हें सिकुड़ने से रोकेगा */
-        margin: 0 !important;
-        padding: 0 !important;
-        gap: 10px !important;
-        border: none !important;
+        padding: 10px 5% !important;
+        overflow: visible !important; /* स्वाइप वाला सिस्टम बंद */
     }
 
-    /* 3. लोगो और बटन्स का साइज़ मोबाइल के हिसाब से एडजस्ट करना */
-    .logo-text { font-size: 1.2rem !important; }
-    .nav-logo { width: 30px !important; height: 30px !important; }
-    
-    /* टेक्स्ट को टूटने से रोकने के लिए white-space: nowrap */
-    .nav-box, #lang-toggle, .header-join-btn {
+    /* टॉप लाइन: लोगो और एक्शन्स */
+    .logo-box { order: 1; flex: 1; }
+    .header-actions { order: 2; display: flex; gap: 8px; }
+
+    /* बॉटम लाइन: मेन्यू के 4 बटन का ग्रिड */
+    .main-nav {
+        order: 3;
+        width: 100% !important;
+        margin-top: 12px !important;
+        padding-top: 12px !important;
+        border-top: 1px solid #333 !important; /* बीच में एक खूबसूरत लाइन */
+    }
+
+    .main-nav ul {
+        display: flex !important;
+        flex-wrap: wrap !important; 
+        justify-content: space-between !important;
+        gap: 8px !important;
+    }
+
+    /* चारों बटनों को 2x2 ग्रिड में सेट करना */
+    .nav-box {
         font-size: 0.85rem !important;
-        padding: 6px 12px !important;
-        white-space: nowrap !important; 
-        border-radius: 20px !important;
+        padding: 8px !important;
+        flex: 1 1 calc(50% - 10px) !important; /* यह जादू बटनों को 2 लाइनों में बराबर बांट देगा */
+        text-align: center !important;
     }
 
-    /* --- बाकी वेबसाइट का मोबाइल लेआउट --- */
+    .logo-text { font-size: 1.3rem !important; }
+    .nav-logo { width: 32px !important; height: 32px !important; }
+    #lang-toggle, .header-join-btn { font-size: 0.85rem !important; padding: 6px 12px !important; }
+
+
+    /* --- 2. Join Page Button Fix (स्क्रीनशॉट वाली प्रॉब्लम) --- */
+    .final-btn {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 100% !important;
+        max-width: 320px !important;
+        margin: 0 auto !important;
+        padding: 15px 20px !important;
+        height: auto !important; /* बटन को टूटने से बचाएगा */
+        border-radius: 12px !important; /* कैप्सूल की जगह हल्का चौकोर, ताकि टेक्स्ट फिट रहे */
+        text-align: center !important;
+        white-space: normal !important; /* टेक्स्ट को आराम से 2 लाइन में आने देगा */
+        line-height: 1.5 !important;
+    }
+    
+    .final-btn span {
+        white-space: normal !important;
+        display: block !important;
+    }
+
+
+    /* --- 3. General Mobile Tweaks --- */
     body { overflow-x: hidden !important; width: 100vw !important; }
     .hero-container { flex-direction: column-reverse !important; text-align: center !important; padding: 10px !important; }
     .hero-text h1 { font-size: 2.2rem !important; text-align: center !important; }
@@ -263,3 +286,5 @@ footer { background: #000; text-align: center; padding: 30px; color: #666; borde
     .grid-cards { grid-template-columns: 1fr !important; gap: 15px !important; }
     .fighters-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
 }
+
+/* 
