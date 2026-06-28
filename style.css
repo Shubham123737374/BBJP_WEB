@@ -205,61 +205,81 @@ footer { background: #000; text-align: center; padding: 30px; color: #666; borde
    ==================================================== */
 
 /* ====================================================
-   📱 MOBILE RESPONSIVE FINAL TWEAKS (HEADER FIX)
+   📱 MEGA MOBILE FIX (इस कोड को style.css के सबसे अंत में डालें)
    ==================================================== */
+
 @media (max-width: 768px) {
-    /* 1. Header Layout Fix (App-style) */
-    header { 
-        flex-direction: row; 
-        flex-wrap: wrap; 
-        padding: 10px 5%; 
+    /* 1. 🚀 जादुई सिंगल-लाइन हेडर (One-Line Swipeable Header) */
+    header {
+        flex-direction: row !important;
+        flex-wrap: nowrap !important; /* यह लाइन को टूटने नहीं देगा */
+        justify-content: flex-start;
         align-items: center;
-        justify-content: space-between;
+        padding: 10px 15px;
+        gap: 15px;
+        overflow-x: auto; /* उंगली से स्वाइप (Horizontal Scroll) चालू करेगा */
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch; /* iPhone और Android में स्मूथ स्वाइप के लिए */
+    }
+
+    /* हेडर का स्क्रॉलबार (गंदी लाइन) छिपाने के लिए */
+    header::-webkit-scrollbar { 
+        display: none; 
     }
     
-    .logo-box { order: 1; }
-    .header-actions { order: 2; gap: 8px; }
+    /* 2. लेफ्ट साइड में लोगो फिक्स करना */
+    .logo-box { 
+        order: 1; 
+        flex-shrink: 0; /* लोगो को सिकुड़ने नहीं देगा */
+        margin-right: auto; /* लोगो और बटन्स के बीच जगह बनाएगा */
+    }
     
-    /* Navigation comes in the second line */
+    /* 3. राईट साइड में सारे मेन्यू बटन एक लाइन में */
     .main-nav { 
-        order: 3; 
-        width: 100%; 
-        margin-top: 12px; 
-        border-top: 1px solid #222; /* हल्का सा डिवाइडर */
-        padding-top: 12px;
+        order: 2; 
+        width: auto; 
+        margin: 0; 
+        padding: 0; 
+        border: none; 
+        flex-shrink: 0;
     }
-    
     .main-nav ul { 
-        flex-wrap: wrap; 
-        justify-content: center; 
-        gap: 8px; 
+        display: flex; 
+        flex-wrap: nowrap; 
+        gap: 10px; 
+        justify-content: flex-start;
     }
     
-    /* Header Sizes for Mobile */
-    .nav-box { font-size: 0.85rem; padding: 6px 12px; }
-    .logo-text { font-size: 1.2rem; }
-    .nav-logo { width: 35px; height: 35px; }
-    #lang-toggle, .header-join-btn { padding: 6px 10px; font-size: 0.85rem; }
-
-    /* 2. Banner Fixes for Mobile */
-    .hero-container { display: flex; text-align: left; flex-direction: column-reverse;}
-    .hero-text h1 { font-size: 2.2rem; text-align: center; }
-    .hero-text h2 { font-size: 1.4rem; text-align: center; margin-bottom: 15px;}
-    .hero-text p { text-align: center; font-size: 1rem; }
-    .main-join-btn { display: block; margin: 0 auto; text-align: center; font-size: 1.1rem; padding: 12px 25px; max-width: 250px;}
-    .hero-image img { max-width: 85%; margin: 0 auto; display: block; }
-
-    /* 3. Section Titles & Spacing */
-    .section-title { font-size: 1.8rem; }
-    .video-section h2, .reality-section h2 { font-size: 1.8rem; }
-    .about-content, .reality-content { padding: 20px; }
+    /* 4. जॉइन और ट्रांसलेट बटन भी उसी लाइन में */
+    .header-actions { 
+        order: 3; 
+        display: flex; 
+        gap: 10px; 
+        flex-shrink: 0; 
+    }
     
-    /* 4. Grid Constraints (Cards one by one) */
-    .grid-cards { grid-template-columns: 1fr; gap: 15px;}
-    .fighters-grid { grid-template-columns: 1fr; gap: 20px;}
+    /* बटन्स का साइज मोबाइल के हिसाब से स्लीक (Sleek) और गोल (Pill shape) करना */
+    .nav-box { font-size: 0.9rem; padding: 6px 15px; border-radius: 20px; background: #1a1a1a; }
+    .logo-text { font-size: 1.4rem; }
+    .nav-logo { width: 35px; height: 35px; }
+    #lang-toggle, .header-join-btn { padding: 6px 15px; font-size: 0.9rem; border-radius: 20px; }
 
-    /* 5. Join Protocol Page (TSQ) Fixes */
+    /* --- 5. बाकी मोबाइल फिक्स (बैनर और कार्ड्स के लिए) --- */
+    body { overflow-x: hidden; width: 100vw; }
+    .hero-container { flex-direction: column-reverse; text-align: center; padding: 10px; }
+    .hero-text h1 { font-size: 2.2rem; }
+    .hero-text h2 { font-size: 1.3rem; }
+    .hero-text p { font-size: 1rem; }
+    .hero-image img { max-width: 85%; margin: 0 auto; display: block; }
+    
+    .video-container video, .history-map img { width: 100%; max-width: 95vw; height: auto; }
+    .about-content, .reality-content { padding: 20px; margin: 10px; }
+    .section-title { font-size: 1.8rem; }
+    
+    .grid-cards { grid-template-columns: 1fr; gap: 15px; padding: 10px; }
+    .fighters-grid { grid-template-columns: 1fr; gap: 20px;}
+    
     .tsq-header h1 { font-size: 1.8rem; }
-    .tsq-subtitle { font-size: 1rem; }
     .tsq-item { font-size: 1rem; padding: 15px; }
+    .final-btn { padding: 15px 30px; font-size: 1.1rem; width: 90%; display: inline-block; }
 }
