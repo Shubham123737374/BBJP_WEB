@@ -205,81 +205,61 @@ footer { background: #000; text-align: center; padding: 30px; color: #666; borde
    ==================================================== */
 
 /* ====================================================
-   📱 MEGA MOBILE FIX (इस कोड को style.css के सबसे अंत में डालें)
+   📱 ULTRA MOBILE FIX (THE MASTER OVERRIDE)
    ==================================================== */
 
 @media (max-width: 768px) {
-    /* 1. 🚀 जादुई सिंगल-लाइन हेडर (One-Line Swipeable Header) */
+    /* 1. हेडर को ज़बरदस्ती एक लाइन में फिक्स करना */
     header {
+        display: flex !important;
         flex-direction: row !important;
-        flex-wrap: nowrap !important; /* यह लाइन को टूटने नहीं देगा */
-        justify-content: flex-start;
-        align-items: center;
-        padding: 10px 15px;
-        gap: 15px;
-        overflow-x: auto; /* उंगली से स्वाइप (Horizontal Scroll) चालू करेगा */
-        white-space: nowrap;
-        -webkit-overflow-scrolling: touch; /* iPhone और Android में स्मूथ स्वाइप के लिए */
+        flex-wrap: nowrap !important;
+        justify-content: flex-start !important;
+        align-items: center !important;
+        overflow-x: auto !important; /* स्वाइप चालू */
+        padding: 10px !important;
+        gap: 15px !important;
+        width: 100vw !important; /* स्क्रीन से बाहर नहीं जाएगा */
+        box-sizing: border-box !important;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* गंदा स्क्रॉलबार छिपाने के लिए */
+    header::-webkit-scrollbar { display: none !important; }
+    
+    /* 2. हेडर के अंदर के सारे बॉक्स को एक लाइन में लॉक करना */
+    .logo-box, .main-nav, .main-nav ul, .header-actions {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        align-items: center !important;
+        flex-shrink: 0 !important; /* इन्हें सिकुड़ने से रोकेगा */
+        margin: 0 !important;
+        padding: 0 !important;
+        gap: 10px !important;
+        border: none !important;
     }
 
-    /* हेडर का स्क्रॉलबार (गंदी लाइन) छिपाने के लिए */
-    header::-webkit-scrollbar { 
-        display: none; 
-    }
+    /* 3. लोगो और बटन्स का साइज़ मोबाइल के हिसाब से एडजस्ट करना */
+    .logo-text { font-size: 1.2rem !important; }
+    .nav-logo { width: 30px !important; height: 30px !important; }
     
-    /* 2. लेफ्ट साइड में लोगो फिक्स करना */
-    .logo-box { 
-        order: 1; 
-        flex-shrink: 0; /* लोगो को सिकुड़ने नहीं देगा */
-        margin-right: auto; /* लोगो और बटन्स के बीच जगह बनाएगा */
+    /* टेक्स्ट को टूटने से रोकने के लिए white-space: nowrap */
+    .nav-box, #lang-toggle, .header-join-btn {
+        font-size: 0.85rem !important;
+        padding: 6px 12px !important;
+        white-space: nowrap !important; 
+        border-radius: 20px !important;
     }
-    
-    /* 3. राईट साइड में सारे मेन्यू बटन एक लाइन में */
-    .main-nav { 
-        order: 2; 
-        width: auto; 
-        margin: 0; 
-        padding: 0; 
-        border: none; 
-        flex-shrink: 0;
-    }
-    .main-nav ul { 
-        display: flex; 
-        flex-wrap: nowrap; 
-        gap: 10px; 
-        justify-content: flex-start;
-    }
-    
-    /* 4. जॉइन और ट्रांसलेट बटन भी उसी लाइन में */
-    .header-actions { 
-        order: 3; 
-        display: flex; 
-        gap: 10px; 
-        flex-shrink: 0; 
-    }
-    
-    /* बटन्स का साइज मोबाइल के हिसाब से स्लीक (Sleek) और गोल (Pill shape) करना */
-    .nav-box { font-size: 0.9rem; padding: 6px 15px; border-radius: 20px; background: #1a1a1a; }
-    .logo-text { font-size: 1.4rem; }
-    .nav-logo { width: 35px; height: 35px; }
-    #lang-toggle, .header-join-btn { padding: 6px 15px; font-size: 0.9rem; border-radius: 20px; }
 
-    /* --- 5. बाकी मोबाइल फिक्स (बैनर और कार्ड्स के लिए) --- */
-    body { overflow-x: hidden; width: 100vw; }
-    .hero-container { flex-direction: column-reverse; text-align: center; padding: 10px; }
-    .hero-text h1 { font-size: 2.2rem; }
-    .hero-text h2 { font-size: 1.3rem; }
-    .hero-text p { font-size: 1rem; }
-    .hero-image img { max-width: 85%; margin: 0 auto; display: block; }
-    
-    .video-container video, .history-map img { width: 100%; max-width: 95vw; height: auto; }
-    .about-content, .reality-content { padding: 20px; margin: 10px; }
-    .section-title { font-size: 1.8rem; }
-    
-    .grid-cards { grid-template-columns: 1fr; gap: 15px; padding: 10px; }
-    .fighters-grid { grid-template-columns: 1fr; gap: 20px;}
-    
-    .tsq-header h1 { font-size: 1.8rem; }
-    .tsq-item { font-size: 1rem; padding: 15px; }
-    .final-btn { padding: 15px 30px; font-size: 1.1rem; width: 90%; display: inline-block; }
+    /* --- बाकी वेबसाइट का मोबाइल लेआउट --- */
+    body { overflow-x: hidden !important; width: 100vw !important; }
+    .hero-container { flex-direction: column-reverse !important; text-align: center !important; padding: 10px !important; }
+    .hero-text h1 { font-size: 2.2rem !important; text-align: center !important; }
+    .hero-text h2 { font-size: 1.4rem !important; text-align: center !important; margin-bottom: 15px !important; }
+    .main-join-btn { display: block !important; margin: 0 auto !important; max-width: 250px !important; }
+    .hero-image img { max-width: 85% !important; margin: 0 auto !important; display: block !important; }
+    .video-container video, .history-map img { width: 100% !important; max-width: 95vw !important; height: auto !important; }
+    .grid-cards { grid-template-columns: 1fr !important; gap: 15px !important; }
+    .fighters-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
 }
